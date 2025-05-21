@@ -1,11 +1,11 @@
 public class no {
     
-    String conteudo;
+    String valor;
 
     no esquerda, direita;
 
     public no(String conteudo) {
-        this.conteudo = conteudo;
+        this.valor = conteudo;
         esquerda = direita = null;
     }
 
