@@ -1,9 +1,12 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class arvore {
 
     no raiz;
 
     public arvore() {
-        // Criando os nós com os respectivos valores
+
         no noA = new no("A");
         no noB = new no("B");
         no noC = new no("C");
@@ -11,7 +14,7 @@ public class arvore {
         no noE = new no("E");
         no noF = new no("F");
 
-        // Montando a árvore conforme a imagem
+
         noA.esquerda = noB;
         noA.direita = noC;
 
@@ -20,7 +23,7 @@ public class arvore {
 
         noC.direita = noF;
 
-        raiz = noA; // Define a raiz da árvore
+        raiz = noA;
     }
 
     public class contadornos {
@@ -65,6 +68,22 @@ public class arvore {
             System.out.println(node.valor + " ");
         }
     
+    }
+
+    public void buscaEmNivel () {
+
+        if (raiz == null) return;
+
+        Queue<no> fila = new LinkedList<>();
+        fila.add(raiz);
+
+        while (!fila.isEmpty()) {
+            no atual = fila.poll();
+            System.out.println(atual.valor + " ");
+
+            if (atual.esquerda != null) fila.add(atual.esquerda);
+            if (atual.direita != null) fila.add(atual.direita);
+        }
     }
 
 }
