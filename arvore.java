@@ -182,4 +182,23 @@ public int contarNosFolhasIterativo() {
 
     return contador;
 }
+
+
+    private int calcularAltura(no node) {
+        if (node == null) return 0;
+        return 1 + Math.max(calcularAltura(node.esquerda), calcularAltura(node.direita));
+    }
+
+    private void atualizarAlturaEFator(no node) {
+        if (node == null) return;
+
+        atualizarAlturaEFator(node.esquerda);
+        atualizarAlturaEFator(node.direita);
+
+        int alturaEsquerda = calcularAltura(node.esquerda);
+        int alturaDireita = calcularAltura(node.direita);
+        node.altura = 1 + Math.max(alturaEsquerda, alturaDireita);
+        node.fatorBalanceamento = alturaEsquerda - alturaDireita;
+    }
+    
 }
