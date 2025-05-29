@@ -11,11 +11,12 @@ public class main {
         do {
             System.out.println("\n----- MENU -----");
             System.out.println("1. Contador de Nós");
-            System.out.println("2. Pré-Ordem");
-            System.out.println("3. Em Ordem");
-            System.out.println("4. Pós-Ordem");
-            System.out.println("5. Em Nível");
-            System.out.println("6. Sair");
+            System.out.println("2. Contador de Nós Folhas");
+            System.out.println("3. Pré-Ordem");
+            System.out.println("4. Em Ordem");
+            System.out.println("5. Pós-Ordem");
+            System.out.println("6. Em Nível");
+            System.out.println("7. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
 
@@ -26,6 +27,23 @@ public class main {
                     break;
 
                 case 2:
+                    System.out.println("1. Versão Recursiva");
+                    System.out.println("2. Versão Iterativa");
+                    System.out.print("Escolha o tipo de contagem de folhas: ");
+                    int tipoFolha = scanner.nextInt();
+
+                    if (tipoFolha == 1) {
+                        int folhas = arv.contarNosFolhasRecursivo(arv.raiz);
+                        System.out.println("Total de nós folhas (recursivo): " + folhas);
+                    } else if (tipoFolha == 2) {
+                        int folhas = arv.contarNosFolhasIterativo();
+                        System.out.println("Total de nós folhas (iterativo): " + folhas);
+                    } else {
+                        System.out.println("Opção inválida.");
+                    }
+                    break;
+
+                case 3:
                     System.out.println("1. Versão Recursiva");
                     System.out.println("2. Versão Iterativa");
                     System.out.print("Escolha o tipo de busca Pré-Ordem: ");
@@ -42,7 +60,7 @@ public class main {
                     }
                     break;
 
-                case 3:
+                case 4:
                     System.out.println("1. Versão Recursiva");
                     System.out.println("2. Versão Iterativa");
                     System.out.print("Escolha o tipo de busca Em Ordem: ");
@@ -59,7 +77,7 @@ public class main {
                     }
                     break;
 
-                case 4:
+                case 5:
                     System.out.println("1. Versão Recursiva");
                     System.out.println("2. Versão Iterativa");
                     System.out.print("Escolha o tipo de busca Pós-Ordem: ");
@@ -76,7 +94,7 @@ public class main {
                     }
                     break;
 
-                case 5:
+                case 6:
                     System.out.println("1. Versão Recursiva");
                     System.out.println("2. Versão Iterativa");
                     System.out.print("Escolha o tipo de busca Em Nível: ");
@@ -93,7 +111,7 @@ public class main {
                     }
                     break;
 
-                case 6:
+                case 7:
                     System.out.println("Saindo...");
                     break;
 
@@ -101,7 +119,7 @@ public class main {
                     System.out.println("Opção inválida. Tente novamente.");
             }
 
-        } while (opcao != 6);
+        } while (opcao != 7);
 
         scanner.close();
     }
