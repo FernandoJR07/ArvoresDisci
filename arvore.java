@@ -153,4 +153,33 @@ public class arvore {
             imprimeNivel(node.direita, nivel - 1);
         }
     }
+
+// -> CONTAR NÓS FOLHAS
+
+public int contarNosFolhasRecursivo(no node) {
+    if (node == null) return 0;
+    if (node.esquerda == null && node.direita == null) return 1;
+    return contarNosFolhasRecursivo(node.esquerda) + contarNosFolhasRecursivo(node.direita);
+}
+
+public int contarNosFolhasIterativo() {
+    if (raiz == null) return 0;
+
+    int contador = 0;
+    Stack<no> pilha = new Stack<>();
+    pilha.push(raiz);
+
+    while (!pilha.isEmpty()) {
+        no atual = pilha.pop();
+
+        if (atual.esquerda == null && atual.direita == null) {
+            contador++;
+        }
+
+        if (atual.direita != null) pilha.push(atual.direita);
+        if (atual.esquerda != null) pilha.push(atual.esquerda);
+    }
+
+    return contador;
+}
 }
