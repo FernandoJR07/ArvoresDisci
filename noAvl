@@ -1,0 +1,10 @@
+public class noAvl {
+    String valor;
+    int altura;
+    noAvl esquerda, direita;
+
+    public noAvl(String valor) {
+        this.valor = valor;
+        altura = 1;
+    }
+}
